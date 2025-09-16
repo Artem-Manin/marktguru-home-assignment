@@ -1,5 +1,16 @@
 # Part 1 - System Design & Architecture
 
+## Pecularities of the use case
+
+### Goal
+Assume data classification
+
+### Data to be used
+Coming from heterogenous sources
+
+### Data type
+Images, not text or structures
+
 ## End-to-end pipeline
 ```mermaid
 flowchart LR
