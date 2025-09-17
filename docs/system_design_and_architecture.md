@@ -1,12 +1,12 @@
 # Part 1 - System Design & Architecture
 
-## Pecularities of the use case
+## Use case
 
 ### Goal
-Assume data classification
+Assumed that the end goal is image classification.
 
-### Data to be used
-Coming from heterogenous sources
+### Incoming data
+From multiple heterogenous sources: API, network shares, SharePoint websites etc.
 
 ### Data type
 Images, not text or structures
@@ -65,6 +65,7 @@ TBD ML/GenAI applications
 Suggested Azure ecosystem for seamless integration.
 
 ### Compute & Processing
+- **Azure Data Factory**: pipeline orchestration and connectors for diverse data sources
 - **Azure Databricks**: data ingestion, transformation, orchestration, and scheduling
 - **Python**: main processing language; versatile and widely supported
 - **Azure ML**: classical ML and GenAI model training, deployment, and monitoring
@@ -78,7 +79,6 @@ Suggested Azure ecosystem for seamless integration.
 - **Azure Key Vault**: secure storage of secrets, keys, and private endpoints
 
 ### Aditional tools to consider:
-- **Azure Data Factory**: pipeline orchestration and connectors for diverse data sources
 - **Azure Synapse Analytics**: structured data processing
 - **SQL**: quering and data manipilation
 - **Microsoft Power BI**: visualization and reporting for statistics, monitoring, and quality checks
