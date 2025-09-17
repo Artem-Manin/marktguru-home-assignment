@@ -1,0 +1,8 @@
+# YOLO classification dataset generated from Food-101
+path: /workspaces/marktguru-home-assignment/data/silver
+train: train
+val: val
+names:
+  - pizza
+  - spaghetti_bolognese
+  - spaghetti_carbonara
