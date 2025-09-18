@@ -1,3 +1,7 @@
 data/*
 !data/README.md
 runs/*
+!runs/**/weights/best.pt
+!runs/**/weights/last.pt
+!runs/**/args.yaml
+!runs/**/results.csv
