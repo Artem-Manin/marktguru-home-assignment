@@ -83,11 +83,6 @@ Suggested Azure ecosystem for seamless integration.
 - **SQL**: quering and data manipilation
 - **Microsoft Power BI**: visualization and reporting for statistics, monitoring, and quality checks
 
-## Prototype
-A lightweight local prototype can be implemented with Python scripts + SQLite + cron
-
-[Data ingestion](../notebooks/data_ingestion.ipynb)
-
 ## High-level architecture
 ```mermaid
 flowchart LR
@@ -107,28 +102,24 @@ flowchart LR
     subgraph ML & GenAI
         ML[Machine Learning]
     end
-D -.- P
-D -.- SQL
-E[External sources] --> DF
-DF --> D
-D --> B
-D --> CDB
-KV -.- B
-KV -.- CDB
-KV -.- D
-B --> ML
-CDB --> ML
+D --- P
+D --- SQL
+E[External sources] ==> DF
+DF ==> D
+D ==> B
+D ==> CDB
+KV --- B
+KV --- CDB
+KV --- D
+B ==> ML
+CDB ==> ML
+B -.- CC1([💡 **Cost control**<br>Archiving to slower but cheaper storage])
+D -.- S1([💡 **Scalability**<br>Autoscale workers in Databricks])
+P -.- R1([💡 **Reliability**<br>Idemponent transformations])
+style CC1 fill:#fff3cd,stroke:#ff9800,stroke-width:2px,color:#000
+style S1 fill:#fff3cd,stroke:#ff9800,stroke-width:2px,color:#000
+style R1 fill:#fff3cd,stroke:#ff9800,stroke-width:2px,color:#000
 ```
-
-### Scalability
-- **Autoscale workers in Databricks**
-
-### Cost control
-- **Archiving**: slower but cheaper storage
-- **Resizing**: store silver at smaller reolution (512 px)
-
-### Reliability
-- **Idemponent transformations**: pipelines retry
 
 ## Databricks
 ### Notebook
