@@ -12,7 +12,7 @@ Date: September 2025
 
 [Data ingestion](notebooks/01_data_ingestion.ipynb)
 
-[Model training](notebooks/02_model_training.ipynb)
+[Model training](notebooks/02_model_train.ipynb)
 
 [Model prediction](notebooks/03_model_predict.ipynb)
 
