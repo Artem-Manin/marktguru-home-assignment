@@ -17,15 +17,38 @@ Date: September 2025
 ## 📂 Repository Structure
 
 ```text
+## 📂 Repository Structure
+
+```text
 .
 ├── data/                                   # Dataset (ignored in Git)
-├── docs/                           
+│
+├── docs/                                   
 │   └── system_design_and_architecture.md   # Part 1: System design & Architecture markdown document
-├── notebooks/                      
+│
+├── notebooks/                              
 │   ├── data_classification.ipynb           # Part 2: Data classification notebook
 │   └── data_ingestion.ipynb                # Part 2: Data ingestion notebook
-├── src/                            
+│
+├── src/                                    
 │   └── utils.py                            # Helper functions
+│
+├── runs/                                   # Training outputs (ignored except key artifacts)
+│   └── classify/
+│       ├── food101_e20_img224_frac0.1/     # Training run (20 epochs, 224px images, 10% of data)
+│       │   ├── weights/
+│       │   │   ├── best.pt                 # Best model checkpoint (highest validation accuracy)
+│       │   │   ├── last.pt                 # Model state from the final epoch
+│       │   │   └── ...                     # Other weight files (if saved)
+│       │   ├── args.yaml                   # Training configuration (hyperparameters)
+│       │   ├── results.csv                 # Training metrics per epoch (accuracy, loss, etc.)
+│       │   └── summary.json                # Summary metadata for the run
+│       │
+│       ├── food101_e20_img512_frac0.1/     # Run with 20 epochs, 512px images, 10% of data
+│       ├── food101_e50_img224_frac0.1/     # Run with 50 epochs, 224px images, 10% of data
+│       ├── food101_e50_img512_frac0.1/     # Run with 50 epochs, 512px images, 10% of data
+│       └── ...                             # More runs with different configs
+│
 ├── .gitignore                              # Git ignore rules
 ├── README.md                               # Project description (this file)
 └── requirements.txt                        # Python dependencies

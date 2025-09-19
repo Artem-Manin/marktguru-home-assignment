@@ -8,3 +8,4 @@ data/*
 !/runs/**/args.yaml
 !/runs/**/results.csv
 !/runs/**/summary.json
+!/runs/**/experiment_stats.csv
