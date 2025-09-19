@@ -53,7 +53,12 @@ Collected metadata may include:
 - **Database**: metadata, labels, predictions, lineage, and quality checks.
 
 ### Data usage
-TBD ML/GenAI applications
+
+See Part 2
+
+[Data ingestion](notebooks/data_ingestion.ipynb)
+
+[Data classification](notebooks/data_classification.ipynb)
 
 ### Data maintenance
 - **Archiving**: move old raw data from /bronze to cold/archive storage for cost efficiency, while keeping /silver and /gold available for active use
@@ -64,7 +69,7 @@ TBD ML/GenAI applications
 ## Technological stack
 Suggested Azure ecosystem for seamless integration.
 
-### Compute & Processing
+### Ingestion & Processing
 - **Azure Data Factory**: pipeline orchestration and connectors for diverse data sources
 - **Azure Databricks**: data ingestion, transformation, orchestration, and scheduling
 - **Python**: main processing language; versatile and widely supported
@@ -83,15 +88,10 @@ Suggested Azure ecosystem for seamless integration.
 - **SQL**: quering and data manipilation
 - **Microsoft Power BI**: visualization and reporting for statistics, monitoring, and quality checks
 
-## Prototype
-A lightweight local prototype can be implemented with Python scripts + SQLite + cron
-
-[Data ingestion](../notebooks/data_ingestion.ipynb)
-
 ## High-level architecture
 ```mermaid
 flowchart LR
-    subgraph Compute & Processing
+    subgraph Ingestion & Processing
         D[Databricks]
         P[Python]
         SQL
@@ -107,30 +107,60 @@ flowchart LR
     subgraph ML & GenAI
         ML[Machine Learning]
     end
-D -.- P
-D -.- SQL
-E[External sources] --> DF
-DF --> D
-D --> B
-D --> CDB
-KV -.- B
-KV -.- CDB
-KV -.- D
-B --> ML
-CDB --> ML
+    subgraph Legend
+        A
+        BB[B]
+        C
+        DD[D]
+        EE[E]
+        F([💡 F])
+    end
+A ==>|Data flow| BB
+C ---|Uses / used by| DD
+EE -.-|Notice| F
+D --- P
+D --- SQL
+E[External sources] ==> DF
+DF ==> D
+D ==> B
+D ==> CDB
+KV --- B
+KV --- CDB
+KV --- D
+B ==> ML
+CDB ==> ML
+B -.- CC1([💡 **Cost control**<br>Archiving to slower but cheaper storage])
+D -.- S1([💡 **Scalability**<br>Autoscale workers in Databricks])
+P -.- R1([💡 **Reliability**<br>Idemponent transformations])
+style CC1 fill:#fff3cd,stroke:#ff9800,stroke-width:2px,color:#000
+style S1 fill:#fff3cd,stroke:#ff9800,stroke-width:2px,color:#000
+style R1 fill:#fff3cd,stroke:#ff9800,stroke-width:2px,color:#000
+style F fill:#fff3cd,stroke:#ff9800,stroke-width:2px,color:#000
 ```
 
-### Scalability
-- **Autoscale workers in Databricks**
-
-### Cost control
-- **Archiving**: slower but cheaper storage
-- **Resizing**: store silver at smaller reolution (512 px)
-
-### Reliability
-- **Idemponent transformations**: pipelines retry
-
 ## Databricks
-### Notebook
+### Workspace and notebooks
+
+Here we create a data ingestion notebook. At the top of a cell one can override the language with a command: `%python` or `%sql`.
+
+We mount a Blob Storage container using `dbutils.fs.mount`. 
+
+For security, secrets are stored in the Key Vault. To retrieve a secret, `dbutils.secrets.get` is used.
+
 ### Workflow
-### Job
+
+Workflows allow to build automated pipelines and make schedulings.
+
+### Compute
+
+Computes are created to run our code. They can include multiple workers to manage data processing.
+
+### Job runs
+
+Each run (e.g. of a notebook) on a compute is a job run which can be checked and monitored.
+
+### Job call from other Azure components
+- Data Factory
+- Synapse Pipelines
+- Logic Apps
+- Functions
