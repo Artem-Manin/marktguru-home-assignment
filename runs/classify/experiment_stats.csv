@@ -5,4 +5,5 @@ run_dir,epochs,img_size,fraction,top1_acc_best,runtime_min,best_weights
 /workspaces/marktguru-home-assignment/runs/classify/food101_e20_img512_frac1,20,512,1.0,0.98,158.982,/workspaces/marktguru-home-assignment/runs/classify/food101_e20_img512_frac1/weights/best.pt
 /workspaces/marktguru-home-assignment/runs/classify/food101_e50_img224_frac0.1,50,224,0.1,0.9173,14.628,/workspaces/marktguru-home-assignment/runs/classify/food101_e50_img224_frac0.1/weights/best.pt
 /workspaces/marktguru-home-assignment/runs/classify/food101_e50_img224_frac1,50,224,1.0,0.976,73.864,/workspaces/marktguru-home-assignment/runs/classify/food101_e50_img224_frac1/weights/best.pt
-/workspaces/marktguru-home-assignment/runs/classify/food101_e50_img512_frac0.1,50,512,0.1,0.94,0.0,/workspaces/marktguru-home-assignment/runs/classify/food101_e50_img512_frac0.1/weights/best.pt
+/workspaces/marktguru-home-assignment/runs/classify/food101_e50_img512_frac0.1,50,512,0.1,0.94,71.703,/workspaces/marktguru-home-assignment/runs/classify/food101_e50_img512_frac0.1/weights/best.pt
+/workspaces/marktguru-home-assignment/runs/classify/food101_e50_img512_frac1,50,512,1.0,0.9707,420.0,/workspaces/marktguru-home-assignment/runs/classify/food101_e50_img512_frac1/weights/best.pt

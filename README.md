@@ -10,9 +10,11 @@ Date: September 2025
 
 ## Part 2
 
-[Data ingestion](notebooks/data_ingestion.ipynb)
+[Data ingestion](notebooks/01_data_ingestion.ipynb)
 
-[Data classification](notebooks/data_classification.ipynb)
+[Model training](notebooks/02_model_training.ipynb)
+
+[Model prediction](notebooks/03_model_predict.ipynb)
 
 ## 📂 Repository Structure
 
