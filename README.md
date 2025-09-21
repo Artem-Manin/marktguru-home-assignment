@@ -4,11 +4,11 @@ Author: Artem Manin
 
 Date: September 2025
 
-## Part 1
+## Part 1 - System Design & Architecture
 
 [System Design & Architecture](docs/system_design_and_architecture.md)
 
-## Part 2
+## Part 2 - Coding & ML/GenAI Application
 
 [Data ingestion](notebooks/01_data_ingestion.ipynb)
 
