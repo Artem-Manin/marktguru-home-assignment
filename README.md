@@ -29,8 +29,9 @@ Date: September 2025
 │   └── system_design_and_architecture.md   # Part 1: System design & Architecture markdown document
 │
 ├── notebooks/                              
-│   ├── data_classification.ipynb           # Part 2: Data classification notebook
-│   └── data_ingestion.ipynb                # Part 2: Data ingestion notebook
+│   ├── 01_data_ingestion.ipynb             # Part 2: Data classification notebook
+│   ├── 02_model_train.ipynb                # Part 2: Model training notebook
+│   └── 03_model_predict.ipynb              # Part 2: Model prediction notebook
 │
 ├── src/                                    
 │   └── utils.py                            # Helper functions
