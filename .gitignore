@@ -1,5 +1,8 @@
 data/*
 !data/README.md
+!data/bronze/
+!data/bronze/upload/
+!data/bronze/upload/**
 /runs/*
 /runs/**
 !/runs/**/
